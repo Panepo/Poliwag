@@ -1,5 +1,6 @@
 import * as types from '../constants/ConstActionTypes'
 
+/*
 export function pageChange(modelId) {
 	return {
 		type: types.PAGE_CHANGE,
@@ -84,3 +85,4 @@ export function statusChange(modelId) {
 		modelId
 	}
 }
+*/

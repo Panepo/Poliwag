@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header'
-import Drawer from './Drawer'
 import Content from './Content'
-
-//import '../../css/App.css'
+import Footer from './Footer'
 
 export default class App extends Component {
 	render() {
@@ -11,8 +9,9 @@ export default class App extends Component {
 			<div>
 				<div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 					<Header />
-					<Drawer />
+					<div className="demo-ribbon mdl-shadow--4dp" />
 					<Content />
+					<Footer />
 				</div>
 			</div>
 		)
