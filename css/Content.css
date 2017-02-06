@@ -1,6 +1,6 @@
 .demo-ribbon {
   width: 100%;
-  height: 60vh;
+  height: 40vh;
   background: #99ccff; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, #9966ff, #ff99ff); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(bottom right, #9966ff, #ff99ff); /* For Opera 11.1 to 12.0 */
@@ -12,7 +12,7 @@
 }
 
 .demo-main {
-  margin-top: -55vh;
+  margin-top: -35vh;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
@@ -32,6 +32,10 @@
   border-radius: 2px;
   padding: 80px 56px;
   margin-bottom: 80px;
+}
+
+.drawer {
+	margin-top: 35vh;
 }
 
 .demo-layout.is-small-screen .demo-content {
