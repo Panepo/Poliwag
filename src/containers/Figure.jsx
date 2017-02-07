@@ -19,7 +19,6 @@ class Figure extends Component {
 						width: 500,
 						height: 400
 					}}
-					domain={{x: [-100,], y: [-100,]}}
 					gridHorizontal={true}
 				/>
 			</div>

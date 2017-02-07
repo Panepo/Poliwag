@@ -13,12 +13,12 @@ import { calcRawData } from './calcData'
 const initialState = {
 	speedFactor: 1000,
 	reportFactor: 150,
-	sourceFactor: { a: 1, b: 1, c: 1 },
+	sourceFactor: { a: 1000, b: 10 },
 	noiseFactor: 40,
 	linearFactor: 80,
 	jitterFactor: 20,
 	mode: 1,
-	point: 10,
+	point: 100,
 	output: [
 		{
 			name: 'raw data',
