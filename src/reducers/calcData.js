@@ -1,31 +1,33 @@
-export function calcRawData(state) {
-	const range = Math.floor(state.speedFactor / state.reportFactor)
-	const factorA = state.sourceFactor.a
-	const factorB = state.sourceFactor.b
-	const output = state.output
+export function calcRawData(speedFactor, reportFactor, sourceFactor, point) {
+	const range = Math.floor(speedFactor / reportFactor)
+	const factorA = sourceFactor.a
+	const factorB = sourceFactor.b
+	const factorC = sourceFactor.c
 	const rawData = []
+
+	for (let i = 0; i < point; i++) {
+		rawData[i] = {}
+		rawData[i].x = i * range
+		rawData[i].y = Math.floor(factorA * (i / point) * Math.sin(i / factorB)) + factorC
+	}
+
+	return rawData
+}
+
+export function calcNoiseData(noiseFactor, point, rawData) {
 	const noiseData = []
 	let noiseX
 	let noiseY
 
-	for (let i = 0; i < state.point; i++) {
-		rawData[i] = {}
-		rawData[i].x = i * range
-		rawData[i].y = Math.floor(factorA * Math.sin(i / factorB))
-	}
-
-	if (state.noiseFactor) {
-		for (let i = 0; i < state.point; i++) {
-			noiseX = Math.floor(state.noiseFactor * Math.random() * 2)
-			noiseY = Math.floor(state.noiseFactor * Math.random() * 2)
+	if (noiseFactor) {
+		for (let i = 0; i < point; i++) {
+			noiseX = Math.floor(noiseFactor * Math.random() * 2)
+			noiseY = Math.floor(noiseFactor * Math.random() * 2)
 			noiseData[i] = {}
-			noiseData[i].x = rawData[i].x - state.noiseFactor + noiseX
-			noiseData[i].y = rawData[i].y - state.noiseFactor + noiseY
+			noiseData[i].x = rawData[i].x - noiseFactor + noiseX
+			noiseData[i].y = rawData[i].y - noiseFactor + noiseY
 		}
 	}
 
-	output[0].values = rawData
-	output[1].values = noiseData
-
-	return output
+	return noiseData
 }

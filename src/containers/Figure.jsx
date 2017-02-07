@@ -5,9 +5,11 @@ import { LineChart } from 'rd3'
 class Figure extends Component {
 	render() {
 		const { output } = this.props
+		const { speedFactor, reportFactor, sourceFactor, noiseFactor } = this.props
+		const { linearFactor, jitterFactor, mode, point } = this.props
 
 		return (
-			<div>
+			<div className="figure">
 				<LineChart
 					legend={true}
 					data={output}
@@ -27,12 +29,28 @@ class Figure extends Component {
 }
 
 Figure.propTypes = {
-	output: PropTypes.array.isRequired
+	output: PropTypes.array.isRequired,
+	speedFactor: PropTypes.number.isRequired,
+	reportFactor: PropTypes.number.isRequired,
+	sourceFactor: PropTypes.object.isRequired,
+	noiseFactor: PropTypes.number.isRequired,
+	linearFactor: PropTypes.number.isRequired,
+	jitterFactor: PropTypes.number.isRequired,
+	mode: PropTypes.number.isRequired,
+	point: PropTypes.number.isRequired
 }
 
 const mapStateToProps = function (state) {
 	return {
-		output: state.reducerCalc.output
+		output: state.reducerCalc.output,
+		speedFactor: state.reducerCalc.speedFactor,
+		reportFactor: state.reducerCalc.reportFactor,
+		sourceFactor: state.reducerCalc.sourceFactor,
+		noiseFactor: state.reducerCalc.noiseFactor,
+		linearFactor: state.reducerCalc.linearFactor,
+		jitterFactor: state.reducerCalc.jitterFactor,
+		mode: state.reducerCalc.mode,
+		point: state.reducerCalc.point
 	}
 }
 
