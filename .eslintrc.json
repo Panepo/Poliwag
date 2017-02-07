@@ -40,10 +40,16 @@
 	"react/self-closing-comp": ["warn"],
 	"react/prefer-stateless-function": ["off"],
 	"react/jsx-indent": ["warn", "tab"],
-    /* Advanced Rules*/
-    "no-unused-expressions": "warn",
-    "no-useless-concat": "warn",
-    "block-scoped-var": "error",
-    "consistent-return": "error"
+	"react/jsx-indent-props": ["warn", "tab"],
+	"react/jsx-boolean-value": "warn",
+	"react/forbid-prop-types": "warn",
+	"no-plusplus": "warn",
+	"import/no-named-default": "warn",
+	"import/prefer-default-export": "warn",
+	"no-mixed-operators": "off",
+	"no-unused-expressions": "warn",
+	"no-useless-concat": "warn",
+	"block-scoped-var": "error",
+	"consistent-return": "error"
   }
 }

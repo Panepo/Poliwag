@@ -62,6 +62,3 @@ export default function reducerCalc(state = initialState, action) {
 		})
 	}
 }
-
-
-

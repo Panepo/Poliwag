@@ -5,13 +5,13 @@ import { LineChart } from 'rd3'
 class Figure extends Component {
 	render() {
 		const { output } = this.props
-		
+
 		return (
 			<div>
 				<LineChart
 					legend={true}
 					data={output}
-					width='100%'
+					width="100%"
 					height={800}
 					viewBoxObject={{
 						x: 0,
@@ -27,12 +27,12 @@ class Figure extends Component {
 }
 
 Figure.propTypes = {
-	output: PropTypes.array.isRequired,
+	output: PropTypes.array.isRequired
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = function (state) {
 	return {
-		output: state.reducerCalc.output,
+		output: state.reducerCalc.output
 	}
 }
 

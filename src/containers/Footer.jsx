@@ -5,7 +5,6 @@ export default class Footer extends Component {
 		return (
 			<footer className="mdl-mini-footer">
 				<div className="mdl-mini-footer--left-section">
-					
 				</div>
 			</footer>
 		)
