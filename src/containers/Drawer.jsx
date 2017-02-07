@@ -14,14 +14,42 @@ class Drawer extends Component {
 			<div className="drawer">
 				<InputBoxValue
 					classes={'text-input'}
-					title={'speedFactor'}
+					title={'Factor: pen speed'}
 					modelId={'speedFactor'}
 					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
 					defaultValue={speedFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
-					title={'point'}
+					title={'Factor: report rate'}
+					modelId={'reportFactor'}
+					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					defaultValue={reportFactor}
+				/>
+				<InputBoxValue
+					classes={'text-input'}
+					title={'Factor: noise'}
+					modelId={'noiseFactor'}
+					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					defaultValue={noiseFactor}
+				/>
+				<InputBoxValue
+					classes={'text-input'}
+					title={'Paramenter: Average'}
+					modelId={'linearFactor'}
+					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					defaultValue={linearFactor}
+				/>
+				<InputBoxValue
+					classes={'text-input'}
+					title={'Paramenter: Limitation'}
+					modelId={'jitterFactor'}
+					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					defaultValue={jitterFactor}
+				/>
+				<InputBoxValue
+					classes={'text-input'}
+					title={'Paramenter: Point'}
 					modelId={'point'}
 					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
 					defaultValue={point}
