@@ -62,7 +62,6 @@ export default function reducerCalc(state = initialState, action) {
 			})
 		case 'noiseFactor':
 			outputTemp = state.output
-			outputTemp[0].values = calcRawData(state.speedFactor, state.reportFactor, state.sourceFactor, state.point)
 			outputTemp[1].values = calcNoiseData(action.modelValue, state.point, outputTemp[0].values)
 			outputTemp[2].values = calcOutData(outputTemp[1].values, state.linearFactor, state.jitterFactor, state.mode, state.point)
 			return Object.assign({}, state, {
@@ -80,8 +79,6 @@ export default function reducerCalc(state = initialState, action) {
 			})
 		case 'linearFactor':
 			outputTemp = state.output
-			outputTemp[0].values = calcRawData(state.speedFactor, state.reportFactor, state.sourceFactor, state.point)
-			outputTemp[1].values = calcNoiseData(state.noiseFactor, state.point, outputTemp[0].values)
 			outputTemp[2].values = calcOutData(outputTemp[1].values, action.modelValue, state.jitterFactor, state.mode, state.point)
 			return Object.assign({}, state, {
 				linearFactor: action.modelValue,
@@ -89,8 +86,6 @@ export default function reducerCalc(state = initialState, action) {
 			})
 		case 'jitterFactor':
 			outputTemp = state.output
-			outputTemp[0].values = calcRawData(state.speedFactor, state.reportFactor, state.sourceFactor, state.point)
-			outputTemp[1].values = calcNoiseData(state.noiseFactor, state.point, outputTemp[0].values)
 			outputTemp[2].values = calcOutData(outputTemp[1].values, state.linearFactor, action.modelValue, state.mode, state.point)
 			return Object.assign({}, state, {
 				jitterFactor: action.modelValue,
