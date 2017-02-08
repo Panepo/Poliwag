@@ -72,6 +72,15 @@ export function calcDispData(input, options) {
 	} else {
 		output[2].strokeWidth = 0
 	}
+	
+	/*for (let i = 0; i < point; i++) {
+		output[0].values[i].x = Math.floor(output[0].values[i].x / 20)
+		output[0].values[i].y = Math.floor(output[0].values[i].y / 20)
+		output[1].values[i].x = Math.floor(output[1].values[i].x / 20)
+		output[1].values[i].y = Math.floor(output[1].values[i].y / 20)
+		output[2].values[i].x = Math.floor(output[2].values[i].x / 20)
+		output[2].values[i].y = Math.floor(output[2].values[i].y / 20)
+	}*/
 
 	return output
 }

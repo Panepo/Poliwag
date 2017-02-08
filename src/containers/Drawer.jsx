@@ -80,6 +80,13 @@ class Drawer extends Component {
 					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
 					defaultValue={jitterFactor}
 				/>
+				<InputBoxValue
+					classes={'text-input'}
+					title={'Paramenter: Mode'}
+					modelId={'mode'}
+					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
+					defaultValue={mode}
+				/>
 			</div>
 		)
 	}

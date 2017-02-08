@@ -9,7 +9,7 @@ import {
 import { calcRawData, calcNoiseData, calcOutData, calcDispData } from './calcData'
 
 const initialState = {
-	dispOption: 2 | 4,
+	dispOption: 1 | 2 | 4,
 	speedFactor: 1000,
 	reportFactor: 150,
 	sourceFactor: { a: 1000, b: 10, c: 1500 },
@@ -20,19 +20,17 @@ const initialState = {
 	point: 200,
 	output: [
 		{
-			name: 'raw',
+			name: 'Raw',
 			values: [],
-			strokeWidth: 1,
-			strokeDashArray: '1,1'
+			strokeWidth: 1
 		},
 		{
-			name: 'noised',
+			name: 'Noised',
 			values: [],
-			strokeWidth: 1,
-			strokeDashArray: '1,1'
+			strokeWidth: 1
 		},
 		{
-			name: 'output',
+			name: 'Output',
 			values: [],
 			strokeWidth: 1
 		}
@@ -121,7 +119,6 @@ export default function reducerCalc(state = initialState, action) {
 			})
 		case 'noiseFactor':
 			outputTemp = state.output
-			outputTemp[0].values = calcRawData(state.speedFactor, state.reportFactor, state.sourceFactor, state.point)
 			outputTemp[1].values = calcNoiseData(action.modelValue, state.point, outputTemp[0].values)
 			outputTemp[2].values = calcOutData(outputTemp[1].values, state.linearFactor, state.jitterFactor, state.mode, state.point)
 			outputTemp = calcDispData(outputTemp, state.dispOption)
@@ -136,8 +133,6 @@ export default function reducerCalc(state = initialState, action) {
 		switch (action.modelId) {
 		case 'linearFactor':
 			outputTemp = state.output
-			outputTemp[0].values = calcRawData(state.speedFactor, state.reportFactor, state.sourceFactor, state.point)
-			outputTemp[1].values = calcNoiseData(state.noiseFactor, state.point, outputTemp[0].values)
 			outputTemp[2].values = calcOutData(outputTemp[1].values, action.modelValue, state.jitterFactor, state.mode, state.point)
 			outputTemp = calcDispData(outputTemp, state.dispOption)
 			return Object.assign({}, state, {
@@ -146,8 +141,6 @@ export default function reducerCalc(state = initialState, action) {
 			})
 		case 'jitterFactor':
 			outputTemp = state.output
-			outputTemp[0].values = calcRawData(state.speedFactor, state.reportFactor, state.sourceFactor, state.point)
-			outputTemp[1].values = calcNoiseData(state.noiseFactor, state.point, outputTemp[0].values)
 			outputTemp[2].values = calcOutData(outputTemp[1].values, state.linearFactor, action.modelValue, state.mode, state.point)
 			outputTemp = calcDispData(outputTemp, state.dispOption)
 			return Object.assign({}, state, {
@@ -162,6 +155,14 @@ export default function reducerCalc(state = initialState, action) {
 			outputTemp = calcDispData(outputTemp, state.dispOption)
 			return Object.assign({}, state, {
 				point: action.modelValue,
+				output: outputTemp
+			})
+		case 'mode':
+			outputTemp = state.output
+			outputTemp[2].values = calcOutData(outputTemp[1].values, state.linearFactor, state.jitterFactor, action.modelValue, state.point)
+			outputTemp = calcDispData(outputTemp, state.dispOption)
+			return Object.assign({}, state, {
+				mode: action.modelValue,
 				output: outputTemp
 			})
 		default:

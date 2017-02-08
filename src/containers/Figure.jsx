@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { LineChart } from 'rd3'
+import { scale } from 'd3'
 
 class Figure extends Component {
 	render() {
@@ -16,6 +17,7 @@ class Figure extends Component {
 					width="100%"
 					height={800}
 					circleRadius={0}
+					colors={scale.category10()}
 					viewBoxObject={{
 						x: 0,
 						y: 0,

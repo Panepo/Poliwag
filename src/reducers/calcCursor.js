@@ -17,8 +17,8 @@ export function cursorMovingAverage(input, point, factor) {
 
 		for (let i = 1; i < point; i++) {
 			output[i] = {}
-			output[i].x = (xTemp * aveFactor + input[i].x * (100 - aveFactor)) / 100;
-			output[i].y = (yTemp * aveFactor + input[i].y * (100 - aveFactor)) / 100;
+			output[i].x = Math.floor((xTemp * aveFactor + input[i].x * (100 - aveFactor)) / 100);
+			output[i].y = Math.floor((yTemp * aveFactor + input[i].y * (100 - aveFactor)) / 100);
 			xTemp = output[i].x
 			yTemp = output[i].y
 		}
