@@ -54,6 +54,21 @@ export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) 
 	}
 }
 
+export function calcQuantData(input, point, level) {
+	let output = input
+	
+	for (let i = 0; i < point; i++) {
+		output[0].values[i].x = Math.floor(output[0].values[i].x / level)
+		output[0].values[i].y = Math.floor(output[0].values[i].y / level)
+		output[1].values[i].x = Math.floor(output[1].values[i].x / level)
+		output[1].values[i].y = Math.floor(output[1].values[i].y / level)
+		output[2].values[i].x = Math.floor(output[2].values[i].x / level)
+		output[2].values[i].y = Math.floor(output[2].values[i].y / level)
+	}
+
+	return output
+}
+
 export function calcDispData(input, options) {
 	let output = input
 
@@ -72,15 +87,6 @@ export function calcDispData(input, options) {
 	} else {
 		output[2].strokeWidth = 0
 	}
-	
-	/*for (let i = 0; i < point; i++) {
-		output[0].values[i].x = Math.floor(output[0].values[i].x / 20)
-		output[0].values[i].y = Math.floor(output[0].values[i].y / 20)
-		output[1].values[i].x = Math.floor(output[1].values[i].x / 20)
-		output[1].values[i].y = Math.floor(output[1].values[i].y / 20)
-		output[2].values[i].x = Math.floor(output[2].values[i].x / 20)
-		output[2].values[i].y = Math.floor(output[2].values[i].y / 20)
-	}*/
 
 	return output
 }
