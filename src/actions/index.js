@@ -1,9 +1,32 @@
 import * as types from '../constants/constActionTypes'
 
-export function modifyInput(modelId, modelValue) {
+export function modifySource(modelId, modelValue) {
 	return {
-		type: types.MODIFY_INPUT,
+		type: types.MODIFY_SOURCE,
 		modelId,
 		modelValue
+	}
+}
+
+export function modifyFactor(modelId, modelValue) {
+	return {
+		type: types.MODIFY_FACTOR,
+		modelId,
+		modelValue
+	}
+}
+
+export function modifyParamenter(modelId, modelValue) {
+	return {
+		type: types.MODIFY_PARAMETER,
+		modelId,
+		modelValue
+	}
+}
+
+export function modifyOption(modelId, modelValue) {
+	return {
+		type: types.MODIFY_OPTION,
+		modelId
 	}
 }

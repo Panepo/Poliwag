@@ -15,6 +15,7 @@ class Figure extends Component {
 					data={output}
 					width="100%"
 					height={800}
+					circleRadius={0}
 					viewBoxObject={{
 						x: 0,
 						y: 0,
@@ -29,6 +30,7 @@ class Figure extends Component {
 }
 
 Figure.propTypes = {
+	dispOption: PropTypes.number.isRequired,
 	output: PropTypes.array.isRequired,
 	speedFactor: PropTypes.number.isRequired,
 	reportFactor: PropTypes.number.isRequired,
@@ -42,6 +44,7 @@ Figure.propTypes = {
 
 const mapStateToProps = function (state) {
 	return {
+		dispOption: state.reducerCalc.dispOption,
 		output: state.reducerCalc.output,
 		speedFactor: state.reducerCalc.speedFactor,
 		reportFactor: state.reducerCalc.reportFactor,

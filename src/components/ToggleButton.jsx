@@ -5,7 +5,7 @@ export default class ToggleButton extends Component {
 		const { display, title, onClickFunc, modelId, Cactive, Cinactive } = this.props
 		
 		var bClassName = ""
-		if ( display == modelId ) {
+		if (display) {
 			bClassName = Cactive
 		} else {
 			bClassName = Cinactive
@@ -18,7 +18,7 @@ export default class ToggleButton extends Component {
 }
 
 ToggleButton.propTypes = {
-	display: PropTypes.string,
+	display: PropTypes.number,
 	title: PropTypes.string,
 	onClickFunc: PropTypes.func,
 	modelId: PropTypes.string,

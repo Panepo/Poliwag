@@ -53,3 +53,25 @@ export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) 
 		return noiseData
 	}
 }
+
+export function calcDispData(input, options) {
+	let output = input
+
+	if ((options & 1)) {
+		output[0].strokeWidth = 1
+	} else {
+		output[0].strokeWidth = 0
+	}
+	if ((options & 2)) {
+		output[1].strokeWidth = 1
+	} else {
+		output[1].strokeWidth = 0
+	}
+	if ((options & 4)) {
+		output[2].strokeWidth = 1
+	} else {
+		output[2].strokeWidth = 0
+	}
+
+	return output
+}

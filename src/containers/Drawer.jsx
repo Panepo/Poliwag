@@ -2,57 +2,83 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import InputBoxValue from '../components/InputBoxValue'
-import { modifyInput } from '../actions'
+import ToggleButton from '../components/ToggleButton'
+import { modifySource, modifyFactor, modifyParamenter, modifyOption } from '../actions'
 import '../../css/Drawer.css'
 
 class Drawer extends Component {
 	render() {
-		const { modifyInput } = this.props
+		const { modifySource, modifyFactor, modifyParamenter, modifyOption } = this.props
+		const { dispOption } = this.props
 		const { speedFactor, reportFactor, sourceFactor, noiseFactor } = this.props
 		const { linearFactor, jitterFactor, mode, point } = this.props
 		return (
 			<div className="drawer">
+				<ToggleButton
+					display={dispOption & 1}
+					title={'raw data'}
+					onClickFunc={(modelId) => modifyOption(modelId)}
+					modelId={'dispOption1'}
+					Cactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"}
+					Cinactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"}
+				/>
+				<ToggleButton
+					display={dispOption & 2}
+					title={'noise data'}
+					onClickFunc={(modelId) => modifyOption(modelId)}
+					modelId={'dispOption2'}
+					Cactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"}
+					Cinactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"}
+				/>
+				<ToggleButton
+					display={dispOption & 4}
+					title={'output data'}
+					onClickFunc={(modelId) => modifyOption(modelId)}
+					modelId={'dispOption4'}
+					Cactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"}
+					Cinactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"}
+				/>
+				<InputBoxValue
+					classes={'text-input'}
+					title={'Option: Point'}
+					modelId={'point'}
+					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
+					defaultValue={point}
+				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Factor: pen speed'}
 					modelId={'speedFactor'}
-					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => modifyFactor(modelId, modelValue)}
 					defaultValue={speedFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Factor: report rate'}
 					modelId={'reportFactor'}
-					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => modifyFactor(modelId, modelValue)}
 					defaultValue={reportFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Factor: noise'}
 					modelId={'noiseFactor'}
-					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => modifyFactor(modelId, modelValue)}
 					defaultValue={noiseFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Paramenter: Average'}
 					modelId={'linearFactor'}
-					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
 					defaultValue={linearFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Paramenter: Limitation'}
 					modelId={'jitterFactor'}
-					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
 					defaultValue={jitterFactor}
-				/>
-				<InputBoxValue
-					classes={'text-input'}
-					title={'Paramenter: Point'}
-					modelId={'point'}
-					inputFunc={(modelId, modelValue) => modifyInput(modelId, modelValue)}
-					defaultValue={point}
 				/>
 			</div>
 		)
@@ -60,6 +86,7 @@ class Drawer extends Component {
 }
 
 Drawer.propTypes = {
+	dispOption: PropTypes.number.isRequired,
 	speedFactor: PropTypes.number.isRequired,
 	reportFactor: PropTypes.number.isRequired,
 	sourceFactor: PropTypes.object.isRequired,
@@ -72,6 +99,7 @@ Drawer.propTypes = {
 
 const mapStateToProps = function (state) {
 	return {
+		dispOption: state.reducerCalc.dispOption,
 		speedFactor: state.reducerCalc.speedFactor,
 		reportFactor: state.reducerCalc.reportFactor,
 		sourceFactor: state.reducerCalc.sourceFactor,
@@ -85,7 +113,10 @@ const mapStateToProps = function (state) {
 
 const mapDispatchToProps = function (dispatch) {
 	return {
-		modifyInput: bindActionCreators(modifyInput, dispatch)
+		modifySource: bindActionCreators(modifySource, dispatch),
+		modifyFactor: bindActionCreators(modifyFactor, dispatch),
+		modifyParamenter: bindActionCreators(modifyParamenter, dispatch),
+		modifyOption: bindActionCreators(modifyOption, dispatch)
 	}
 }
 
