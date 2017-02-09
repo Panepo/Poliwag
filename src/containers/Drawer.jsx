@@ -54,13 +54,6 @@ class Drawer extends Component {
 				/>
 				<InputBoxValue
 					classes={'text-input'}
-					title={'Factor: report rate'}
-					modelId={'reportFactor'}
-					inputFunc={(modelId, modelValue) => modifyFactor(modelId, modelValue)}
-					defaultValue={reportFactor}
-				/>
-				<InputBoxValue
-					classes={'text-input'}
 					title={'Factor: noise'}
 					modelId={'noiseFactor'}
 					inputFunc={(modelId, modelValue) => modifyFactor(modelId, modelValue)}
