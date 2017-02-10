@@ -12,6 +12,10 @@ class Drawer extends Component {
 		const { dispOption } = this.props
 		const { speedFactor, reportFactor, sourceFactor, noiseFactor } = this.props
 		const { linearFactor, jitterFactor, mode, point } = this.props
+
+		const buttonClassActive = 'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'
+		const buttonClassInactive = 'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'
+		
 		return (
 			<div className="drawer">
 				<ToggleButton
@@ -19,24 +23,24 @@ class Drawer extends Component {
 					title={'raw data'}
 					onClickFunc={(modelId) => {modifyOption(modelId)}}
 					modelId={'dispOption1'}
-					Cactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'}
-					Cinactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'}
+					classActive={buttonClassActive}
+					classInactive={buttonClassInactive}
 				/>
 				<ToggleButton
 					display={dispOption & 2}
 					title={'noise data'}
 					onClickFunc={(modelId) => {modifyOption(modelId)}}
 					modelId={'dispOption2'}
-					Cactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'}
-					Cinactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'}
+					classActive={buttonClassActive}
+					classInactive={buttonClassInactive}
 				/>
 				<ToggleButton
 					display={dispOption & 4}
 					title={'output data'}
 					onClickFunc={(modelId) => {modifyOption(modelId)}}
 					modelId={'dispOption4'}
-					Cactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'}
-					Cinactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'}
+					classActive={buttonClassActive}
+					classInactive={buttonClassInactive}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
