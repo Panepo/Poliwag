@@ -3,14 +3,14 @@ import React, { Component, PropTypes } from 'react'
 export default class ToggleButton extends Component {
 	render() {
 		const { display, title, onClickFunc, modelId, Cactive, Cinactive } = this.props
-		
-		var bClassName = ""
+
+		let bClassName = ''
 		if (display) {
 			bClassName = Cactive
 		} else {
 			bClassName = Cinactive
 		}
-		
+
 		return (
 			<button className={bClassName} onClick={onClickFunc.bind(null, modelId)}>{title}</button>
 		)

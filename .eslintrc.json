@@ -37,6 +37,8 @@
       "never"
     ],
 	"no-tabs": "off",
+	"no-bitwise": "off",
+	"no-shadow": "off",
 	"max-len": "warn",
 	"react/self-closing-comp": ["warn"],
 	"react/prefer-stateless-function": ["off"],

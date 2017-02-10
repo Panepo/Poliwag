@@ -7,7 +7,7 @@ export function calcRawData(speedFactor, reportFactor, sourceFactor, point) {
 	const factorC = sourceFactor.c
 	const rawData = []
 
-	for (let i = 0; i < point; i++) {
+	for (let i = 0; i < point; i += 1) {
 		rawData[i] = {}
 		rawData[i].x = i * range
 		rawData[i].y = Math.floor(factorA * (i / point) * Math.sin(i / factorB)) + factorC
@@ -22,7 +22,7 @@ export function calcNoiseData(noiseFactor, point, rawData) {
 	let noiseY
 
 	if (noiseFactor) {
-		for (let i = 0; i < point; i++) {
+		for (let i = 0; i < point; i += 1) {
 			noiseX = Math.floor(noiseFactor * Math.random() * 2)
 			noiseY = Math.floor(noiseFactor * Math.random() * 2)
 			noiseData[i] = {}
@@ -55,9 +55,9 @@ export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) 
 }
 
 export function calcQuantData(input, point, level) {
-	let output = input
-	
-	for (let i = 0; i < point; i++) {
+	const output = input
+
+	for (let i = 0; i < point; i += 1) {
 		output[0].values[i].x = Math.floor(output[0].values[i].x / level)
 		output[0].values[i].y = Math.floor(output[0].values[i].y / level)
 		output[1].values[i].x = Math.floor(output[1].values[i].x / level)
@@ -70,7 +70,7 @@ export function calcQuantData(input, point, level) {
 }
 
 export function calcDispData(input, options) {
-	let output = input
+	const output = input
 
 	if ((options & 1)) {
 		output[0].strokeWidth = 1

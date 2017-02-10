@@ -15,10 +15,10 @@ export function cursorMovingAverage(input, point, factor) {
 		output[0].x = input[0].x
 		output[0].y = input[0].y
 
-		for (let i = 1; i < point; i++) {
+		for (let i = 1; i < point; i += 1) {
 			output[i] = {}
-			output[i].x = Math.floor((xTemp * aveFactor + input[i].x * (100 - aveFactor)) / 100);
-			output[i].y = Math.floor((yTemp * aveFactor + input[i].y * (100 - aveFactor)) / 100);
+			output[i].x = Math.floor((xTemp * aveFactor + input[i].x * (100 - aveFactor)) / 100)
+			output[i].y = Math.floor((yTemp * aveFactor + input[i].y * (100 - aveFactor)) / 100)
 			xTemp = output[i].x
 			yTemp = output[i].y
 		}
@@ -41,7 +41,7 @@ export function cursorLimitation(input, point, factor) {
 		output[0].x = input[0].x
 		output[0].y = input[0].y
 
-		for (let i = 1; i < point; i++) {
+		for (let i = 1; i < point; i += 1) {
 			output[i] = {}
 			if (Math.abs(input[i].x - xTemp) < factor) {
 				output[i].x = xTemp

@@ -17,67 +17,67 @@ class Drawer extends Component {
 				<ToggleButton
 					display={dispOption & 1}
 					title={'raw data'}
-					onClickFunc={(modelId) => modifyOption(modelId)}
+					onClickFunc={(modelId) => {modifyOption(modelId)}}
 					modelId={'dispOption1'}
-					Cactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"}
-					Cinactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"}
+					Cactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'}
+					Cinactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'}
 				/>
 				<ToggleButton
 					display={dispOption & 2}
 					title={'noise data'}
-					onClickFunc={(modelId) => modifyOption(modelId)}
+					onClickFunc={(modelId) => {modifyOption(modelId)}}
 					modelId={'dispOption2'}
-					Cactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"}
-					Cinactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"}
+					Cactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'}
+					Cinactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'}
 				/>
 				<ToggleButton
 					display={dispOption & 4}
 					title={'output data'}
-					onClickFunc={(modelId) => modifyOption(modelId)}
+					onClickFunc={(modelId) => {modifyOption(modelId)}}
 					modelId={'dispOption4'}
-					Cactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary"}
-					Cinactive={"type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"}
+					Cactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'}
+					Cinactive={'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Option: Point'}
 					modelId={'point'}
-					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => {modifyParamenter(modelId, modelValue)}}
 					defaultValue={point}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Factor: pen speed'}
 					modelId={'speedFactor'}
-					inputFunc={(modelId, modelValue) => modifyFactor(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => {modifyFactor(modelId, modelValue)}}
 					defaultValue={speedFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Factor: noise'}
 					modelId={'noiseFactor'}
-					inputFunc={(modelId, modelValue) => modifyFactor(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => {modifyFactor(modelId, modelValue)}}
 					defaultValue={noiseFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Paramenter: Average'}
 					modelId={'linearFactor'}
-					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => {modifyParamenter(modelId, modelValue)}}
 					defaultValue={linearFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Paramenter: Limitation'}
 					modelId={'jitterFactor'}
-					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => {modifyParamenter(modelId, modelValue)}}
 					defaultValue={jitterFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Paramenter: Mode'}
 					modelId={'mode'}
-					inputFunc={(modelId, modelValue) => modifyParamenter(modelId, modelValue)}
+					inputFunc={(modelId, modelValue) => {modifyParamenter(modelId, modelValue)}}
 					defaultValue={mode}
 				/>
 			</div>
