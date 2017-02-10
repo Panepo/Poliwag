@@ -24,7 +24,7 @@ export function modifyParamenter(modelId, modelValue) {
 	}
 }
 
-export function modifyOption(modelId, modelValue) {
+export function modifyOption(modelId) {
 	return {
 		type: types.MODIFY_OPTION,
 		modelId

@@ -4,15 +4,15 @@ export default class ToggleButton extends Component {
 	render() {
 		const { display, title, onClickFunc, modelId, classActive, classInactive } = this.props
 
-		let bClassName = ''
+		let buttonClass = ''
 		if (display) {
-			bClassName = classActive
+			buttonClass = classActive
 		} else {
-			bClassName = classInactive
+			buttonClass = classInactive
 		}
 
 		return (
-			<button className={bClassName} onClick={onClickFunc.bind(null, modelId)}>{title}</button>
+			<button className={buttonClass} onClick={onClickFunc.bind(null, modelId)}>{title}</button>
 		)
 	}
 }
@@ -24,4 +24,12 @@ ToggleButton.propTypes = {
 	modelId: PropTypes.string,
 	classActive: PropTypes.string,
 	classInactive: PropTypes.string
+}
+
+ToggleButton.defaultProps = {
+	display: 0,
+	title: 'ToggleButton',
+	modelId: 'ToggleButton',
+	classActive: 'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary',
+	classInactive: 'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'
 }

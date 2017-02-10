@@ -15,7 +15,7 @@ class Drawer extends Component {
 
 		const buttonClassActive = 'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'
 		const buttonClassInactive = 'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'
-		
+
 		return (
 			<div className="drawer">
 				<ToggleButton
@@ -98,7 +98,11 @@ Drawer.propTypes = {
 	linearFactor: PropTypes.number.isRequired,
 	jitterFactor: PropTypes.number.isRequired,
 	mode: PropTypes.number.isRequired,
-	point: PropTypes.number.isRequired
+	point: PropTypes.number.isRequired,
+	modifySource: PropTypes.func.isRequired,
+	modifyFactor: PropTypes.func.isRequired,
+	modifyParamenter: PropTypes.func.isRequired,
+	modifyOption: PropTypes.func.isRequired
 }
 
 const mapStateToProps = function (state) {

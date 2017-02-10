@@ -57,9 +57,9 @@ export default function reducerCalc(state = initialState, action) {
 		case 'dispOption1':
 			stateTemp = state.dispOption
 			if (stateTemp & 1) {
-				stateTemp = stateTemp ^ 1
+				stateTemp ^= 1
 			} else {
-				stateTemp = stateTemp | 1
+				stateTemp |= 1
 			}
 			outputTemp = state.output
 			outputTemp = calcDispData(outputTemp, stateTemp)
@@ -70,9 +70,9 @@ export default function reducerCalc(state = initialState, action) {
 		case 'dispOption2':
 			stateTemp = state.dispOption
 			if (stateTemp & 2) {
-				stateTemp = stateTemp ^ 2
+				stateTemp ^= 2
 			} else {
-				stateTemp = stateTemp | 2
+				stateTemp |= 2
 			}
 			outputTemp = state.output
 			outputTemp = calcDispData(outputTemp, stateTemp)
@@ -83,9 +83,9 @@ export default function reducerCalc(state = initialState, action) {
 		case 'dispOption4':
 			stateTemp = state.dispOption
 			if (stateTemp & 4) {
-				stateTemp = stateTemp ^ 4
+				stateTemp ^= 4
 			} else {
-				stateTemp = stateTemp | 4
+				stateTemp |= 4
 			}
 			outputTemp = state.output
 			outputTemp = calcDispData(outputTemp, stateTemp)

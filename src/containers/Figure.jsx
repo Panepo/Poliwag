@@ -6,6 +6,7 @@ import { scale } from 'd3'
 class Figure extends Component {
 	render() {
 		const { output } = this.props
+		const { dispOption } = this.props
 		const { speedFactor, reportFactor, sourceFactor, noiseFactor } = this.props
 		const { linearFactor, jitterFactor, mode, point } = this.props
 
