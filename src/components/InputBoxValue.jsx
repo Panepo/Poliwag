@@ -32,7 +32,7 @@ export default class InputBoxValue extends Component {
 			<div className={classes + classDiv}>
 				<input className={classInp} type="text" pattern="-?[0-9]*(\.[0-9]+)?" id={modelId} onChange={this.handleInput.bind(this)} value={this.state.text} />
 				<label className={classLab} htmlFor={modelId}>{title}</label>
-				<span className={classErr}>数値が正しくありません</span>
+				<span className={classErr}>The input value is not correct.</span>
 			</div>
 		)
 	}
