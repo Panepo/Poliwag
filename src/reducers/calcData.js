@@ -1,4 +1,4 @@
-import { cursorMovingAverage, cursorLimitation } from './calcCursor'
+import { cursorMovingAverage, cursorLimitation, cursorBeizer } from './calcCursor'
 
 export function calcRawData(speedFactor, reportFactor, sourceFactor, point) {
 	const range = Math.floor(speedFactor / reportFactor)
@@ -39,6 +39,7 @@ export function calcNoiseData(noiseFactor, point, rawData) {
 export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) {
 	let outData1 = []
 	let outData2 = []
+	let outData3 = []
 
 	switch (mode) {
 	case 1:
@@ -49,6 +50,16 @@ export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) 
 		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
 		outData2 = cursorLimitation(outData1, point, jitterFactor)
 		return outData2
+	case 3:
+		outData1 = cursorLimitation(noiseData, point, jitterFactor)
+		outData2 = cursorMovingAverage(outData1, point, linearFactor)
+		outData3 = cursorBeizer(outData2, point)
+		return outData3
+	case 4:
+		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
+		outData2 = cursorLimitation(outData1, point, jitterFactor)
+		outData3 = cursorBeizer(outData2, point)
+		return outData3
 	default:
 		return noiseData
 	}
