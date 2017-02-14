@@ -51,7 +51,7 @@ class Drawer extends Component {
 				/>
 				<InputBoxValue
 					classes={'text-input'}
-					title={'Factor: pen speed'}
+					title={'Factor: length'}
 					modelId={'speedFactor'}
 					inputFunc={(modelId, modelValue) => {modifyFactor(modelId, modelValue)}}
 					defaultValue={speedFactor}

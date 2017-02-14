@@ -10,7 +10,7 @@ export function calcRawData(speedFactor, reportFactor, sourceFactor, point) {
 	for (let i = 0; i < point; i += 1) {
 		rawData[i] = {}
 		rawData[i].x = i * range
-		rawData[i].y = Math.floor(factorA * (i / point) * Math.sin(i / factorB)) + factorC
+		rawData[i].y = Math.floor(factorA * (i * range / point) * Math.sin(i / factorB)) + factorC
 	}
 
 	return rawData

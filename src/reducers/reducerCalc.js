@@ -12,7 +12,7 @@ const initialState = {
 	dispOption: 1 | 2 | 4,
 	speedFactor: 3000,
 	reportFactor: 150,
-	sourceFactor: { a: 1000, b: 10, c: 1500 },
+	sourceFactor: { a: 300, b: 10, c: 0 },
 	noiseFactor: 40,
 	linearFactor: 50,
 	jitterFactor: 20,
