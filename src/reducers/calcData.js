@@ -23,11 +23,11 @@ export function calcNoiseData(noiseFactor, point, rawData) {
 
 	if (noiseFactor) {
 		for (let i = 0; i < point; i += 1) {
-			noiseX = Math.floor(noiseFactor * Math.random() * 2)
-			noiseY = Math.floor(noiseFactor * Math.random() * 2)
+			noiseX = Math.floor(noiseFactor * Math.random())
+			noiseY = Math.floor(noiseFactor * Math.random())
 			noiseData[i] = {}
-			noiseData[i].x = rawData[i].x - noiseFactor + noiseX
-			noiseData[i].y = rawData[i].y - noiseFactor + noiseY
+			noiseData[i].x = rawData[i].x - Math.floor(noiseFactor / 2) + noiseX
+			noiseData[i].y = rawData[i].y - Math.floor(noiseFactor / 2) + noiseY
 		}
 	} else {
 		noiseData = rawData

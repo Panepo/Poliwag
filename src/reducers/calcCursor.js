@@ -70,27 +70,59 @@ export function cursorBeizer(input, point) {
 	const output = []
 	const xTemp = []
 	const yTemp = []
+	let p0
+	let p1
+	let p2
+	let p3
 
-	output[0] = {}
-	output[0].x = input[0].x
-	output[0].y = input[0].y
-	for (let i = 0; i < 3; i += 1) {
+	for (let i = 0; i < 2; i += 1) {
+		output[i] = {}
+		output[i].x = input[i].x
+		output[i].y = input[i].y
 		xTemp[i] = input[i].x
 		yTemp[i] = input[i].y
 	}
 
-	for (let i = 1; i < point; i += 1) {
+	for (let i = 3; i < point; i += 1) {
+		xTemp[i % 4] = input[i].x
+		yTemp[i % 4] = input[i].y
+
+		switch (i % 4) {
+		case 0:
+			p0 = 1
+			p1 = 2
+			p2 = 3
+			p3 = 0
+			break
+		case 1:
+			p0 = 2
+			p1 = 3
+			p2 = 0
+			p3 = 1
+			break
+		case 2:
+			p0 = 3
+			p1 = 0
+			p2 = 1
+			p3 = 2
+			break
+		case 3:
+			p0 = 0
+			p1 = 1
+			p2 = 2
+			p3 = 3
+			break
+		default:
+			p0 = 0
+			p1 = 1
+			p2 = 2
+			p3 = 3
+			break
+		}
+
 		output[i] = {}
-		output[i].x = (factor[0] * xTemp[0] + factor[1] * xTemp[1] + factor[2] * xTemp[2] + factor[3] * input[i].x) / factor[4]
-		output[i].y = (factor[0] * yTemp[0] + factor[1] * yTemp[1] + factor[2] * yTemp[2] + factor[3] * input[i].y) / factor[4]
-
-		xTemp[0] = xTemp[1]
-		xTemp[1] = xTemp[2]
-		xTemp[2] = output[i].x
-
-		yTemp[0] = yTemp[1]
-		yTemp[1] = yTemp[2]
-		yTemp[2] = output[i].y
+		output[i].x = (factor[0] * xTemp[p0] + factor[1] * xTemp[p1] + factor[2] * xTemp[p2] + factor[3] * xTemp[p3]) / factor[4]
+		output[i].y = (factor[0] * yTemp[p0] + factor[1] * yTemp[p1] + factor[2] * yTemp[p2] + factor[3] * yTemp[p3]) / factor[4]
 	}
 
 	return output
