@@ -75,12 +75,12 @@ export function cursorBeizer(input, point) {
 	let p2
 	let p3
 
-	for (let i = 0; i < 2; i += 1) {
-		output[i] = {}
-		output[i].x = input[i].x
-		output[i].y = input[i].y
-		xTemp[i] = input[i].x
-		yTemp[i] = input[i].y
+	for (let j = 0; j < 3; j += 1) {
+		output[j] = {}
+		output[j].x = input[j].x
+		output[j].y = input[j].y
+		xTemp[j] = input[j].x
+		yTemp[j] = input[j].y
 	}
 
 	for (let i = 3; i < point; i += 1) {

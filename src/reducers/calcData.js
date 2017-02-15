@@ -40,6 +40,7 @@ export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) 
 	let outData1 = []
 	let outData2 = []
 	let outData3 = []
+	let outData4 = []
 
 	switch (mode) {
 	case 1:
@@ -60,6 +61,12 @@ export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) 
 		outData2 = cursorLimitation(outData1, point, jitterFactor)
 		outData3 = cursorBeizer(outData2, point)
 		return outData3
+	case 5:
+		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
+		outData2 = cursorLimitation(outData1, point, jitterFactor)
+		outData3 = cursorBeizer(outData2, point)
+		outData4 = cursorLimitation(outData3, point, jitterFactor)
+		return outData4
 	default:
 		return noiseData
 	}
