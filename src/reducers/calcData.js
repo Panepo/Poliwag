@@ -47,26 +47,26 @@ export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) 
 		outData1 = cursorLimitation(noiseData, point, jitterFactor)
 		outData2 = cursorMovingAverage(outData1, point, linearFactor)
 		return outData2
-	case 2:
-		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
-		outData2 = cursorLimitation(outData1, point, jitterFactor)
-		return outData2
-	case 3:
+	case 11:
 		outData1 = cursorLimitation(noiseData, point, jitterFactor)
 		outData2 = cursorMovingAverage(outData1, point, linearFactor)
 		outData3 = cursorBeizer(outData2, point)
 		return outData3
-	case 4:
+	case 111:
+		outData1 = cursorLimitation(noiseData, point, jitterFactor)
+		outData2 = cursorMovingAverage(outData1, point, linearFactor)
+		outData3 = cursorBeizer(outData2, point)
+		outData4 = cursorLimitation(outData3, point, jitterFactor)
+		return outData4
+	case 2:
+		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
+		outData2 = cursorLimitation(outData1, point, jitterFactor)
+		return outData2
+	case 21:
 		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
 		outData2 = cursorLimitation(outData1, point, jitterFactor)
 		outData3 = cursorBeizer(outData2, point)
 		return outData3
-	case 5:
-		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
-		outData2 = cursorLimitation(outData1, point, jitterFactor)
-		outData3 = cursorBeizer(outData2, point)
-		outData4 = cursorLimitation(outData3, point, jitterFactor)
-		return outData4
 	default:
 		return noiseData
 	}
