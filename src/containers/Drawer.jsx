@@ -11,7 +11,7 @@ class Drawer extends Component {
 		const { modifySource, modifyFactor, modifyParamenter, modifyOption } = this.props
 		const { dispOption } = this.props
 		const { speedFactor, reportFactor, sourceFactor, noiseFactor } = this.props
-		const { linearFactor, jitterFactor, mode, point } = this.props
+		const { aveFactor, limFactor, mode, point } = this.props
 
 		const buttonClassActive = 'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary'
 		const buttonClassInactive = 'type-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent'
@@ -66,16 +66,16 @@ class Drawer extends Component {
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Paramenter: Average'}
-					modelId={'linearFactor'}
+					modelId={'aveFactor'}
 					inputFunc={(modelId, modelValue) => {modifyParamenter(modelId, modelValue)}}
-					defaultValue={linearFactor}
+					defaultValue={aveFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
 					title={'Paramenter: Limitation'}
-					modelId={'jitterFactor'}
+					modelId={'limFactor'}
 					inputFunc={(modelId, modelValue) => {modifyParamenter(modelId, modelValue)}}
-					defaultValue={jitterFactor}
+					defaultValue={limFactor}
 				/>
 				<InputBoxValue
 					classes={'text-input'}
@@ -95,8 +95,8 @@ Drawer.propTypes = {
 	reportFactor: PropTypes.number.isRequired,
 	sourceFactor: PropTypes.object.isRequired,
 	noiseFactor: PropTypes.number.isRequired,
-	linearFactor: PropTypes.number.isRequired,
-	jitterFactor: PropTypes.number.isRequired,
+	aveFactor: PropTypes.number.isRequired,
+	limFactor: PropTypes.number.isRequired,
 	mode: PropTypes.number.isRequired,
 	point: PropTypes.number.isRequired,
 	modifySource: PropTypes.func.isRequired,
@@ -112,8 +112,8 @@ const mapStateToProps = function (state) {
 		reportFactor: state.reducerCalc.reportFactor,
 		sourceFactor: state.reducerCalc.sourceFactor,
 		noiseFactor: state.reducerCalc.noiseFactor,
-		linearFactor: state.reducerCalc.linearFactor,
-		jitterFactor: state.reducerCalc.jitterFactor,
+		aveFactor: state.reducerCalc.aveFactor,
+		limFactor: state.reducerCalc.limFactor,
 		mode: state.reducerCalc.mode,
 		point: state.reducerCalc.point
 	}

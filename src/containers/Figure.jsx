@@ -8,7 +8,7 @@ class Figure extends Component {
 		const { output } = this.props
 		const { dispOption } = this.props
 		const { speedFactor, reportFactor, sourceFactor, noiseFactor } = this.props
-		const { linearFactor, jitterFactor, mode, point } = this.props
+		const { aveFactor, limFactor, mode, point } = this.props
 
 		return (
 			<div className="figure">
@@ -39,8 +39,8 @@ Figure.propTypes = {
 	reportFactor: PropTypes.number.isRequired,
 	sourceFactor: PropTypes.object.isRequired,
 	noiseFactor: PropTypes.number.isRequired,
-	linearFactor: PropTypes.number.isRequired,
-	jitterFactor: PropTypes.number.isRequired,
+	aveFactor: PropTypes.number.isRequired,
+	limFactor: PropTypes.number.isRequired,
 	mode: PropTypes.number.isRequired,
 	point: PropTypes.number.isRequired
 }
@@ -53,8 +53,8 @@ const mapStateToProps = function (state) {
 		reportFactor: state.reducerCalc.reportFactor,
 		sourceFactor: state.reducerCalc.sourceFactor,
 		noiseFactor: state.reducerCalc.noiseFactor,
-		linearFactor: state.reducerCalc.linearFactor,
-		jitterFactor: state.reducerCalc.jitterFactor,
+		aveFactor: state.reducerCalc.aveFactor,
+		limFactor: state.reducerCalc.limFactor,
 		mode: state.reducerCalc.mode,
 		point: state.reducerCalc.point
 	}
