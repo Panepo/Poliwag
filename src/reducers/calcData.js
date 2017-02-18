@@ -1,4 +1,4 @@
-import { cursorMovingAverage, cursorLimitation, cursorBeizer } from './calcCursor'
+import { cursorMovingAverage, cursorLimitation, cursorBeizerE, cursorBeizerS } from './calcCursor'
 
 export function calcRawData(speedFactor, reportFactor, sourceFactor, point) {
 	const range = Math.floor(speedFactor / reportFactor)
@@ -36,40 +36,33 @@ export function calcNoiseData(noiseFactor, point, rawData) {
 	return noiseData
 }
 
-export function calcOutData(noiseData, linearFactor, jitterFactor, mode, point) {
-	let outData1 = []
-	let outData2 = []
-	let outData3 = []
-	let outData4 = []
+export function calcOutData(noiseData, aveFactor, limFactor, mode, point) {
+	let dataLoopInp = noiseData
+	let dataLoopOut = noiseData
+	const modString = mode.toString()
 
-	switch (mode) {
-	case 1:
-		outData1 = cursorLimitation(noiseData, point, jitterFactor)
-		outData2 = cursorMovingAverage(outData1, point, linearFactor)
-		return outData2
-	case 11:
-		outData1 = cursorLimitation(noiseData, point, jitterFactor)
-		outData2 = cursorMovingAverage(outData1, point, linearFactor)
-		outData3 = cursorBeizer(outData2, point)
-		return outData3
-	case 111:
-		outData1 = cursorLimitation(noiseData, point, jitterFactor)
-		outData2 = cursorMovingAverage(outData1, point, linearFactor)
-		outData3 = cursorBeizer(outData2, point)
-		outData4 = cursorLimitation(outData3, point, jitterFactor)
-		return outData4
-	case 2:
-		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
-		outData2 = cursorLimitation(outData1, point, jitterFactor)
-		return outData2
-	case 21:
-		outData1 = cursorMovingAverage(noiseData, point, linearFactor)
-		outData2 = cursorLimitation(outData1, point, jitterFactor)
-		outData3 = cursorBeizer(outData2, point)
-		return outData3
-	default:
-		return noiseData
+	for (let i = 0; i < modString.length; i += 1) {
+		switch (modString.charAt(i)) {
+		case '1':
+			dataLoopOut = cursorLimitation(dataLoopInp, point, limFactor)
+			break
+		case '2':
+			dataLoopOut = cursorMovingAverage(dataLoopInp, point, aveFactor)
+			break
+		case '3':
+			dataLoopOut = cursorBeizerE(dataLoopInp, point)
+			break
+		case '4':
+			dataLoopOut = cursorBeizerS(dataLoopInp, point)
+			break
+		default:
+			dataLoopOut = dataLoopInp
+		}
+
+		dataLoopInp = dataLoopOut
 	}
+
+	return dataLoopOut
 }
 
 export function calcQuantData(input, point, level) {

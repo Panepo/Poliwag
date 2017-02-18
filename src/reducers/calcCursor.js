@@ -65,7 +65,7 @@ export function cursorLimitation(input, point, factor) {
 	return output
 }
 
-export function cursorBeizer(input, point) {
+export function cursorBeizerE(input, point) {
 	const factor = [27, 27, 9, 1, 64]
 	const output = []
 	const xTemp = []
@@ -123,6 +123,49 @@ export function cursorBeizer(input, point) {
 		output[i] = {}
 		output[i].x = (factor[0] * xTemp[p0] + factor[1] * xTemp[p1] + factor[2] * xTemp[p2] + factor[3] * xTemp[p3]) / factor[4]
 		output[i].y = (factor[0] * yTemp[p0] + factor[1] * yTemp[p1] + factor[2] * yTemp[p2] + factor[3] * yTemp[p3]) / factor[4]
+	}
+
+	return output
+}
+
+export function cursorBeizerS(input, point) {
+	const factor = [27 / 64, 9 / 16, 3 / 4]
+	const output = []
+	const xPara = []
+	const yPara = []
+	const xTemp = []
+	const yTemp = []
+
+	for (let j = 0; j < 3; j += 1) {
+		xTemp[j] = input[0].x
+		yTemp[j] = input[0].y
+	}
+	output[0] = {}
+	output[0].x = input[0].x
+	output[0].y = input[0].y
+
+	for (let i = 1; i < point; i += 1) {
+		xTemp[3] = input[i].x
+		yTemp[3] = input[i].y
+
+		xPara[2] = 3 * (xTemp[1] - xTemp[0])
+		xPara[1] = 3 * (xTemp[2] - xTemp[1]) - xPara[2]
+		xPara[0] = xTemp[3] - xTemp[0] - xPara[2] - xPara[1]
+
+		yPara[2] = 3 * (yTemp[1] - yTemp[0])
+		yPara[1] = 3 * (yTemp[2] - yTemp[1]) - yPara[2]
+		yPara[0] = yTemp[3] - yTemp[0] - yPara[2] - yPara[1]
+
+		output[i] = {}
+		output[i].x = xTemp[0] + xPara[0] * factor[0] + xPara[1] * factor[1] + xPara[2] * factor[2]
+		output[i].y = yTemp[0] + yPara[0] * factor[0] + yPara[1] * factor[1] + yPara[2] * factor[2]
+
+		xTemp[0] = xTemp[1]
+		xTemp[1] = xTemp[2]
+		xTemp[2] = xTemp[3]
+		yTemp[0] = yTemp[1]
+		yTemp[1] = yTemp[2]
+		yTemp[2] = yTemp[3]
 	}
 
 	return output

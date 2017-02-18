@@ -16,7 +16,7 @@ const initialState = {
 	noiseFactor: 40,
 	linearFactor: 50,
 	jitterFactor: 20,
-	mode: 1,
+	mode: 12,
 	point: 200,
 	quantLevel: 20,
 	output: [
