@@ -39,7 +39,7 @@
 	"no-tabs": "off",
 	"no-bitwise": "off",
 	"no-shadow": "off",
-	"max-len": "warn",
+	"max-len": ["warn", 200],
 	"block-spacing": "off",
 	"spaced-comment": "warn",
 	"react/self-closing-comp": ["warn"],
