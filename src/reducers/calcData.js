@@ -1,3 +1,4 @@
+import * as math from 'mathjs'
 import { cursorMovingAverage, cursorLimitation, cursorBeizerE, cursorBeizerS } from './calcCursor'
 
 export function calcRawData(speedFactor, reportFactor, sourceFactor, point) {
@@ -6,11 +7,15 @@ export function calcRawData(speedFactor, reportFactor, sourceFactor, point) {
 	const factorB = sourceFactor.b
 	const factorC = sourceFactor.c
 	const rawData = []
+	let r
 
 	for (let i = 0; i < point; i += 1) {
 		rawData[i] = {}
 		rawData[i].x = i * range
 		rawData[i].y = Math.floor(factorA * (i * range / point) * Math.sin(i / factorB)) + factorC
+		//r = math.sec(0.4 * math.acos(Math.cos(2.5 * i)))
+		//rawData[i].x = r * Math.cos(i) * range * 50
+		//rawData[i].y = r * Math.sin(i) * range * 50
 	}
 
 	return rawData
