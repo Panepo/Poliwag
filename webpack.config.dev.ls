@@ -1,9 +1,10 @@
 require! {
+	"html-webpack-plugin": HtmlWebpackPlugin
 	"path": path
 	"webpack": webpack
 }
 
-module.exports = {
+webpackConfig = {
 	devtool: "sourcemap"
 	entry: [
 		#'webpack-hot-middleware/client'
@@ -14,7 +15,11 @@ module.exports = {
 		filename: 'bundle.js'
 	}
 	plugins: [
-		new webpack.optimize.OccurenceOrderPlugin()
+		new HtmlWebpackPlugin {
+			path: path.join(__dirname, 'build')
+			template: './src/index.html'
+			inject: true
+		}
 		new webpack.HotModuleReplacementPlugin()
 		new webpack.NoErrorsPlugin()
 	]
@@ -63,3 +68,5 @@ module.exports = {
 		fs: "empty"
 	}
 }
+
+module.exports = webpackConfig
