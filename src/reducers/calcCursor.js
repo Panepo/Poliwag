@@ -43,14 +43,22 @@ export function cursorLimitation(input, point, factor) {
 
 		for (let i = 1; i < point; i += 1) {
 			output[i] = {}
-			if (Math.abs(input[i].x - xTemp) < factor) {
-				output[i].x = xTemp
+			if (Math.abs(input[i].x - xTemp) > factor) {
+				if (input[i].x > xTemp) {
+					output[i].x = xTemp + factor
+				} else {
+					output[i].x = xTemp - factor
+				}
 			} else {
 				output[i].x = input[i].x
 			}
 
-			if (Math.abs(input[i].y - yTemp) < factor) {
-				output[i].y = yTemp
+			if (Math.abs(input[i].y - yTemp) > factor) {
+				if (input[i].y > yTemp) {
+					output[i].y = yTemp + factor
+				} else {
+					output[i].y = yTemp - factor
+				}
 			} else {
 				output[i].y = input[i].y
 			}
