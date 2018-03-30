@@ -21,6 +21,14 @@ $ npm install
 ```
 $ npm run start
 ```
+## Scripts
+
+|`npm run <script>`    |Description|
+|-------------------|-----------|
+|`start`            |Serves your app at `localhost:3000`|
+|`dev`              |Builds the devlopment application to ./build|
+|`build`            |Builds the production application to ./build|
+
 ## Testing
 
 To add a unit test, create a `.spec.js` file anywhere inside of `./tests`. Karma and webpack will automatically find these files, and Mocha and Chai will be available within your test without the need to import them.
