@@ -8,7 +8,8 @@
     "start": "cross-env NODE_ENV=development lsc server.ls --nodejs --harmoy",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --colors --config webpack.config.prod.ls",
     "dev": "npm run clean && cross-env NODE_ENV=development webpack --progress --colors --config webpack.config.dev.ls",
-	"test": "mocha --compilers js:babel-core/register"
+    "test": "mocha --compilers js:babel-core/register",
+    "travis": "cross-env NODE_ENV=production webpack --config webpack.config.prod.ls"
   },
   "author": "Panepo <panepo@github.io>",
   "license": "MIT",
