@@ -5,7 +5,7 @@ node_js:
 
 env:
   global:
-    secure: tpsEKqE8LwhUHVOp2af2xW/BaNlNRZFAXfKsqNvpJF0N784pBDPtDZtbZjBYtnAeHtRQlL1rgN5TW/dVoHJh1yK695eaSwqKHHKgTzOHXz726MVCnpfGiFHQXtxmeNaQxF+dDfUafGmus7PEFIGiZe7JYol2KYmkbrfHwktLBNx+hS/QYnupBKZlNDtMj6ae/1TC971veT63RjXGLw6ZJw6L8b4kwrUrJuX0OmBgdiEtvizoSqd4B+sJN3WFEPI9YyL6elbbWsBcUWty+APbTBaI35ejKBw9S/2vb+QM46RF4b266Kg1yj+bT7UGmvXVyHM9+2kw7HWPNBgk0Z3bhkIfprixp9m5QrnrHmj9Rus11bg0cWXDTMNY4Ye+7AS8U8RkirdENixFpno6EeN+HXw4gMcq5Fhdtb3FJXblQY4/mhILjD/kPKq9Su+OiM9WNGqHHjbYB+c9uNdzO7aWsFs5OGP/cHPL1YWkM6BWgsCEfzQT3/Eq6Ybt8cz46kYdu8tIWDKKXk7RCw8iHv2wm90eaJt2f82YpqchUzw0C4oSIbMjlkG7qcrxnEcXO6IskvSzi36Eg9betesee7rreK7Ql75rBV0X0G8eELq31o+kAAGb86KgzGqrl8+66hrxYfpFqHf2wSfY34ORu7Ssr1+FtweUu0QKFqjyghzs+Tg=
+    secure: mMOXu+T0elTgSA36UGhiAff6ge3OYwbRz10Bm9A+SnMHnZlpJN/cVzlVLpcewfJWljJQGoVb7oifwTH0yTYzbRZPDHfohswPdm/mXpFrZOwjvCKNZsDrGwU/yvRBhk+A4nr6kfYGLLl4BODWZurLOoqTCZX8vH77h+pK3QqGbYFIFFBZoP8yirc8MkKrvW9Wb1wi2AyNoWx8iiG9p1upgGoHEU7QmEUpMxgAbYclyJXY7SUdqrrJUjOycc031/I3AIF6QAnDbb4w4RJ2B4+zsAXJnFlFFSrWRtO6MqCQZMKEr74t3t6aizi9nqU3UZeaXCFqfU9IzuXNmnDdFN3l2pljosxet4tEAuxyHn6MbLKRSvmMHROg+Z88Zgmoyy/S23VhSc0RHiPA/aE8psSFKfQlj7VNm9dRPizS/nPoW0ekdLELTfqWqDtx6yZAT+mKNuzH+6IU2bLeIPdIRfKjN+5nxL1fQNzrkouTAQQ50DIK4Bhl2C+20Cn6Hu++Vtnefm0yxRz4a7k27n1Nwps98MWbvV4m+WR/Pzmq/7mtvXgD4hryOy8dx4AHmHEndvEP5ItT7r5UGwexo/0dVPBY9X/w+kieHetqh12lM8daBV1ev8TmHGtT+zixzgiBZkOq+LRbRnnVuaeC5XL1ChMDRZoM6FgCypfR+Sa7m+v9bQo=
 
 before_install:
   - export TZ=Asia/Taipei
@@ -28,3 +28,4 @@ script:
   - MESSAGE=`date +\ %Y-%m-%d\ %H:%M:%S`
   - git commit -m "Travis CI auto deploy:$MESSAGE"
   - git push --quiet
+
