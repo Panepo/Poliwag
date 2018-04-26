@@ -1,4 +1,4 @@
-import * as types from '../constants/constActionTypes'
+import * as types from '../constants/ConstActionTypes'
 
 export function modifySource(modelId, modelValue) {
   return {

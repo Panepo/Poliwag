@@ -4,7 +4,7 @@ import {
   MODIFY_FACTOR,
   MODIFY_PARAMETER,
   MODIFY_OPTION
-} from '../constants/constActionTypes'
+} from '../constants/ConstActionTypes'
 
 import {
   calcRawData,
@@ -20,7 +20,7 @@ const initialState = {
   sourceFactor: { a: 300, b: 10, c: 0 },
   noiseFactor: 40,
   aveFactor: 50,
-  limFactor: 20,
+  limFactor: 400,
   mode: 12,
   point: 200,
   quantLevel: 20,
